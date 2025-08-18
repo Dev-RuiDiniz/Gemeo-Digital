@@ -1,0 +1,13 @@
+digital_twin/
+├── twins/
+│   ├── __init__.py
+│   ├── machine.py          # Classe Máquina
+│   ├── production_line.py  # Simulação da linha de produção
+│   └── optimization.py     # Funções de otimização
+├── tests/
+│   ├── __init__.py
+│   ├── test_machine.py
+│   ├── test_production_line.py
+│   └── test_optimization.py
+├── main.py                 # Script principal
+└── requirements.txt
