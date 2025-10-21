@@ -1,78 +1,78 @@
-# 🏭 Digital Twin Industrial System
+# 🏭 Sistema de Gêmeo Digital Industrial
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue)
-![Tests](https://img.shields.io/badge/Tests-Passing-green)
-![Coverage](https://img.shields.io/badge/Coverage-95%25-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+![Testes](https://img.shields.io/badge/Testes-Passando-green)
+![Cobertura](https://img.shields.io/badge/Cobertura-95%25-brightgreen)
+![Licença](https://img.shields.io/badge/Licença-MIT-yellow)
 
-## 📋 Overview
+## 📋 Visão Geral
 
-This project implements a comprehensive **Digital Twin** system for industrial production lines using Python. It provides advanced simulation, optimization, predictive analytics, and visualization capabilities for manufacturing environments.
+Este projeto implementa um sistema abrangente de **Gêmeo Digital** para linhas de produção industriais usando Python. Ele fornece capacidades avançadas de simulação, otimização, análise preditiva e visualização para ambientes de manufatura.
 
-### 🚀 Key Features
+### 🚀 Principais Funcionalidades
 
-- **🔧 Advanced Machine Simulation** - Realistic machine behavior with efficiency, maintenance, and failure modeling
-- **📊 Production Line Optimization** - Multiple optimization algorithms with constraint handling
-- **🤖 AI-Powered Predictions** - Ensemble machine learning models for operation time forecasting
-- **📈 Comprehensive Analytics** - Statistical analysis, trend detection, and performance metrics
-- **🎨 Rich Visualizations** - Interactive dashboards and detailed reporting
-- **⚙️ Configuration Management** - Flexible JSON-based configuration system
-- **📝 Comprehensive Logging** - Detailed logging and monitoring capabilities
+- **🔧 Simulação Avançada de Máquinas** - Comportamento realista de máquinas com modelagem de eficiência, manutenção e falhas
+- **📊 Otimização de Linha de Produção** - Múltiplos algoritmos de otimização com tratamento de restrições
+- **🤖 Previsões com IA** - Modelos de machine learning em ensemble para previsão de tempos de operação
+- **📈 Análise Abrangente** - Análise estatística, detecção de tendências e métricas de performance
+- **🎨 Visualizações Ricas** - Dashboards interativos e relatórios detalhados
+- **⚙️ Gerenciamento de Configuração** - Sistema de configuração flexível baseado em JSON
+- **📝 Logging Abrangente** - Capacidades detalhadas de logging e monitoramento
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Arquitetura
 
-The system is built with a modular architecture:
+O sistema é construído com uma arquitetura modular:
 
 ```
-digital_twin/
-├── config.py                 # Configuration management
-├── main.py                   # Main application entry point
-├── utils/                    # Utility modules
+gêmeo_digital/
+├── config.py                 # Gerenciamento de configuração
+├── main.py                   # Ponto de entrada da aplicação principal
+├── utils/                    # Módulos utilitários
 │   ├── __init__.py
-│   └── logger.py            # Logging utilities
-├── twins/                    # Core digital twin modules
+│   └── logger.py            # Utilitários de logging
+├── twins/                    # Módulos principais do gêmeo digital
 │   ├── __init__.py
-│   ├── machine.py           # Enhanced machine simulation
-│   ├── production_line.py   # Production line management
-│   ├── optimization.py      # Advanced optimization engine
-│   ├── predictive.py        # AI predictive models
-│   └── visualization.py     # Visualization system
-├── tests/                    # Comprehensive test suite
+│   ├── machine.py           # Simulação aprimorada de máquinas
+│   ├── production_line.py   # Gerenciamento de linha de produção
+│   ├── optimization.py      # Motor de otimização avançado
+│   ├── predictive.py        # Modelos preditivos de IA
+│   └── visualization.py     # Sistema de visualização
+├── tests/                    # Suite de testes abrangente
 │   ├── test_machine.py
 │   ├── test_optimization.py
 │   ├── test_predictive.py
 │   ├── test_production_line.py
 │   └── test_integration.py
-└── requirements.txt          # Dependencies
+└── requirements.txt          # Dependências
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Início Rápido
 
-### Installation
+### Instalação
 
-1. **Clone the repository:**
+1. **Clone o repositório:**
 ```bash
-git clone <repository-url>
-cd digital-twin-system
+git clone <url-do-repositório>
+cd gêmeo-digital
 ```
 
-2. **Install dependencies:**
+2. **Instale as dependências:**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Run the system:**
+3. **Execute o sistema:**
 ```bash
 python main.py
 ```
 
-### Configuration
+### Configuração
 
-The system uses JSON configuration files. A sample configuration is provided in `config_sample.json`:
+O sistema usa arquivos de configuração JSON. Uma configuração de exemplo é fornecida em `config_sample.json`:
 
 ```json
 {
@@ -96,16 +96,16 @@ The system uses JSON configuration files. A sample configuration is provided in 
 
 ---
 
-## 🔧 Core Components
+## 🔧 Componentes Principais
 
-### 1. Machine Simulation (`twins/machine.py`)
+### 1. Simulação de Máquinas (`twins/machine.py`)
 
-Enhanced machine modeling with:
-- **Efficiency tracking** - Performance degradation over time
-- **Maintenance scheduling** - Automatic maintenance intervals
-- **Failure simulation** - Random failure events with repair times
-- **Statistical analysis** - Comprehensive performance metrics
-- **Trend analysis** - Performance trend detection
+Modelagem aprimorada de máquinas com:
+- **Rastreamento de eficiência** - Degradação de performance ao longo do tempo
+- **Agendamento de manutenção** - Intervalos automáticos de manutenção
+- **Simulação de falhas** - Eventos aleatórios de falha com tempos de reparo
+- **Análise estatística** - Métricas abrangentes de performance
+- **Análise de tendências** - Detecção de tendências de performance
 
 ```python
 from twins.machine import Machine
@@ -119,21 +119,21 @@ machine = Machine(
     failure_rate=0.01
 )
 
-# Operate machine
+# Operar máquina
 operation_time = machine.operate(current_time=5.0)
 
-# Get statistics
+# Obter estatísticas
 stats = machine.get_statistics()
 trend = machine.get_trend_analysis()
 ```
 
-### 2. Production Line Management (`twins/production_line.py`)
+### 2. Gerenciamento de Linha de Produção (`twins/production_line.py`)
 
-Advanced production line simulation with:
-- **Bottleneck analysis** - Identify production constraints
-- **Line efficiency calculation** - Overall system performance
-- **Real-time monitoring** - Continuous performance tracking
-- **Issue detection** - Automatic problem identification
+Simulação avançada de linha de produção com:
+- **Análise de gargalos** - Identificar restrições de produção
+- **Cálculo de eficiência da linha** - Performance geral do sistema
+- **Monitoramento em tempo real** - Rastreamento contínuo de performance
+- **Detecção de problemas** - Identificação automática de problemas
 
 ```python
 from twins.production_line import ProductionLine
@@ -142,35 +142,35 @@ import simpy
 env = simpy.Environment()
 production_line = ProductionLine(env, machines)
 
-# Run simulation
+# Executar simulação
 env.process(production_line.run_production(duration=10.0))
 env.run()
 
-# Get metrics
+# Obter métricas
 metrics = production_line.get_production_metrics()
 ```
 
-### 3. Optimization Engine (`twins/optimization.py`)
+### 3. Motor de Otimização (`twins/optimization.py`)
 
-Multi-algorithm optimization with:
-- **Multiple algorithms** - L-BFGS-B, Differential Evolution, Dual Annealing
-- **Various objectives** - Total time, bottleneck penalty, weighted efficiency
-- **Constraint handling** - Custom constraint support
-- **Sensitivity analysis** - Parameter impact assessment
+Otimização multi-algoritmo com:
+- **Múltiplos algoritmos** - L-BFGS-B, Evolução Diferencial, Dual Annealing
+- **Vários objetivos** - Tempo total, penalidade de gargalo, eficiência ponderada
+- **Tratamento de restrições** - Suporte a restrições personalizadas
+- **Análise de sensibilidade** - Avaliação do impacto de parâmetros
 
 ```python
 from twins.optimization import OptimizationEngine
 
 engine = OptimizationEngine(algorithm="L-BFGS-B")
 
-# Basic optimization
+# Otimização básica
 result = engine.optimize_times(
     bounds=[(0.5, 2.0), (0.5, 2.0)],
     initial_times=[1.5, 1.5],
     objective_function="bottleneck_penalty"
 )
 
-# Multi-objective optimization
+# Otimização multi-objetivo
 results = engine.multi_objective_optimization(
     bounds=bounds,
     initial_times=initial_times,
@@ -178,44 +178,44 @@ results = engine.multi_objective_optimization(
 )
 ```
 
-### 4. Predictive Analytics (`twins/predictive.py`)
+### 4. Análise Preditiva (`twins/predictive.py`)
 
-Advanced AI models for forecasting:
-- **Multiple algorithms** - Linear, Ridge, Lasso, Random Forest, Polynomial
-- **Ensemble methods** - Weighted combination of models
-- **Validation metrics** - Cross-validation and performance assessment
-- **Confidence intervals** - Uncertainty quantification
+Modelos de IA avançados para previsão:
+- **Múltiplos algoritmos** - Linear, Ridge, Lasso, Random Forest, Polinomial
+- **Métodos ensemble** - Combinação ponderada de modelos
+- **Métricas de validação** - Validação cruzada e avaliação de performance
+- **Intervalos de confiança** - Quantificação de incerteza
 
 ```python
 from twins.predictive import PredictiveModel, EnsemblePredictiveModel
 
-# Single model
+# Modelo único
 model = PredictiveModel(model_type="random_forest")
 model.train(historical_data)
 prediction = model.predict_next()
 
-# Ensemble model
+# Modelo ensemble
 ensemble = EnsemblePredictiveModel(models=["linear", "ridge", "random_forest"])
 ensemble.train(historical_data)
 prediction = ensemble.predict_next()
 ```
 
-### 5. Visualization System (`twins/visualization.py`)
+### 5. Sistema de Visualização (`twins/visualization.py`)
 
-Comprehensive visualization capabilities:
-- **Operation time plots** - Historical data with predictions
-- **Machine statistics** - Performance comparison charts
-- **Production metrics** - Line efficiency and bottleneck analysis
-- **Optimization results** - Before/after comparisons
-- **Trend analysis** - Performance trend visualization
-- **Dashboard** - Comprehensive system overview
+Capacidades abrangentes de visualização:
+- **Gráficos de tempo de operação** - Dados históricos com previsões
+- **Estatísticas de máquinas** - Gráficos de comparação de performance
+- **Métricas de produção** - Eficiência da linha e análise de gargalos
+- **Resultados de otimização** - Comparações antes/depois
+- **Análise de tendências** - Visualização de tendências de performance
+- **Dashboard** - Visão geral abrangente do sistema
 
 ```python
 from twins.visualization import DigitalTwinVisualizer
 
 visualizer = DigitalTwinVisualizer(style="seaborn-v0_8")
 
-# Generate visualizations
+# Gerar visualizações
 visualizer.plot_operation_times(machines, predictive_models)
 visualizer.plot_machine_statistics(machines)
 visualizer.create_dashboard(machines, production_line, optimization_results)
@@ -223,58 +223,58 @@ visualizer.create_dashboard(machines, production_line, optimization_results)
 
 ---
 
-## 🧪 Testing
+## 🧪 Testes
 
-The system includes comprehensive test coverage:
+O sistema inclui cobertura abrangente de testes:
 
 ```bash
-# Run all tests
+# Executar todos os testes
 python -m pytest tests/
 
-# Run specific test modules
+# Executar módulos de teste específicos
 python -m pytest tests/test_machine.py
 python -m pytest tests/test_optimization.py
 python -m pytest tests/test_predictive.py
 python -m pytest tests/test_integration.py
 
-# Run with coverage
+# Executar com cobertura
 python -m pytest tests/ --cov=twins --cov-report=html
 ```
 
-### Test Categories
+### Categorias de Teste
 
-- **Unit Tests** - Individual component testing
-- **Integration Tests** - End-to-end system testing
-- **Performance Tests** - Optimization and simulation performance
-- **Validation Tests** - Model accuracy and reliability
+- **Testes Unitários** - Teste de componentes individuais
+- **Testes de Integração** - Teste de sistema completo
+- **Testes de Performance** - Performance de otimização e simulação
+- **Testes de Validação** - Precisão e confiabilidade do modelo
 
 ---
 
-## 📊 Usage Examples
+## 📊 Exemplos de Uso
 
-### Basic Usage
+### Uso Básico
 
 ```python
 from main import DigitalTwinSystem
 
-# Initialize system
+# Inicializar sistema
 system = DigitalTwinSystem("config.json")
 
-# Run complete analysis
+# Executar análise completa
 report = system.run_complete_analysis()
 
-# Access results
-print(f"Total cycles: {system.production_line.total_cycles}")
-print(f"Line efficiency: {system.production_line.line_efficiency:.2%}")
+# Acessar resultados
+print(f"Total de ciclos: {system.production_line.total_cycles}")
+print(f"Eficiência da linha: {system.production_line.line_efficiency:.2%}")
 ```
 
-### Advanced Configuration
+### Configuração Avançada
 
 ```python
 from config import Config
 from twins.machine import Machine
 
-# Custom configuration
+# Configuração personalizada
 config = Config()
 config.machines = [
     Machine("A", 1.0, 2.0, efficiency=0.95),
@@ -283,22 +283,22 @@ config.machines = [
 config.simulation.duration = 20.0
 config.optimization.algorithm = "differential_evolution"
 
-# Save configuration
+# Salvar configuração
 config.save_to_file("custom_config.json")
 ```
 
-### Custom Optimization
+### Otimização Personalizada
 
 ```python
 from twins.optimization import OptimizationEngine
 
 engine = OptimizationEngine(algorithm="dual_annealing")
 
-# Define custom constraint
+# Definir restrição personalizada
 def custom_constraint(times):
-    return sum(times) - 5.0  # Total time >= 5 hours
+    return sum(times) - 5.0  # Tempo total >= 5 horas
 
-# Run optimization with constraints
+# Executar otimização com restrições
 result = engine.optimize_times(
     bounds=[(0.5, 2.0), (0.5, 2.0)],
     initial_times=[1.5, 1.5],
@@ -308,35 +308,35 @@ result = engine.optimize_times(
 
 ---
 
-## 📈 Performance Metrics
+## 📈 Métricas de Performance
 
-The system provides comprehensive performance metrics:
+O sistema fornece métricas abrangentes de performance:
 
-### Machine Metrics
-- **Operation Statistics** - Average, min, max, standard deviation
-- **Efficiency Tracking** - Current and historical efficiency
-- **Availability** - Uptime percentage
-- **Quality Scores** - Product quality metrics
-- **Trend Analysis** - Performance trend detection
+### Métricas de Máquinas
+- **Estatísticas de Operação** - Média, mínimo, máximo, desvio padrão
+- **Rastreamento de Eficiência** - Eficiência atual e histórica
+- **Disponibilidade** - Percentual de tempo ativo
+- **Pontuações de Qualidade** - Métricas de qualidade do produto
+- **Análise de Tendências** - Detecção de tendências de performance
 
-### Production Line Metrics
-- **Total Cycles** - Number of completed production cycles
-- **Line Efficiency** - Overall system efficiency
-- **Bottleneck Analysis** - Constraint identification
-- **Throughput** - Production rate
-- **Cycle Time Analysis** - Time distribution analysis
+### Métricas de Linha de Produção
+- **Total de Ciclos** - Número de ciclos de produção completados
+- **Eficiência da Linha** - Eficiência geral do sistema
+- **Análise de Gargalos** - Identificação de restrições
+- **Taxa de Produção** - Taxa de produção
+- **Análise de Tempo de Ciclo** - Análise de distribuição de tempo
 
-### Optimization Metrics
-- **Improvement Percentage** - Optimization effectiveness
-- **Algorithm Performance** - Convergence metrics
-- **Constraint Satisfaction** - Feasibility assessment
-- **Sensitivity Analysis** - Parameter impact
+### Métricas de Otimização
+- **Percentual de Melhoria** - Efetividade da otimização
+- **Performance do Algoritmo** - Métricas de convergência
+- **Satisfação de Restrições** - Avaliação de viabilidade
+- **Análise de Sensibilidade** - Impacto de parâmetros
 
 ---
 
-## 🔧 Configuration Options
+## 🔧 Opções de Configuração
 
-### Machine Configuration
+### Configuração de Máquinas
 ```json
 {
   "name": "Machine_A",
@@ -348,7 +348,7 @@ The system provides comprehensive performance metrics:
 }
 ```
 
-### Simulation Configuration
+### Configuração de Simulação
 ```json
 {
   "duration": 10.0,
@@ -358,7 +358,7 @@ The system provides comprehensive performance metrics:
 }
 ```
 
-### Optimization Configuration
+### Configuração de Otimização
 ```json
 {
   "algorithm": "L-BFGS-B",
@@ -368,7 +368,7 @@ The system provides comprehensive performance metrics:
 }
 ```
 
-### Visualization Configuration
+### Configuração de Visualização
 ```json
 {
   "figure_size": [12, 8],
@@ -381,61 +381,61 @@ The system provides comprehensive performance metrics:
 
 ---
 
-## 📝 Logging and Monitoring
+## 📝 Logging e Monitoramento
 
-The system includes comprehensive logging:
+O sistema inclui logging abrangente:
 
 ```python
 from utils.logger import setup_logger
 
-# Setup logging
+# Configurar logging
 logger = setup_logger(
     name="digital_twin",
     level="INFO",
     log_file="logs/system.log"
 )
 
-# Log messages
-logger.info("System initialized")
-logger.warning("Low efficiency detected")
-logger.error("Optimization failed")
+# Mensagens de log
+logger.info("Sistema inicializado")
+logger.warning("Baixa eficiência detectada")
+logger.error("Otimização falhou")
 ```
 
 ---
 
-## 🤝 Contributing
+## 🤝 Contribuindo
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. Faça fork do repositório
+2. Crie uma branch de feature (`git checkout -b feature/feature-incrível`)
+3. Commit suas mudanças (`git commit -m 'Adicionar feature incrível'`)
+4. Push para a branch (`git push origin feature/feature-incrível`)
+5. Abra um Pull Request
 
 ---
 
-## 🙏 Acknowledgments
+## 📄 Licença
 
-- **SimPy** - Discrete event simulation
-- **SciPy** - Scientific computing and optimization
-- **scikit-learn** - Machine learning algorithms
-- **Matplotlib/Seaborn** - Data visualization
-- **NumPy/Pandas** - Numerical computing and data analysis
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
 
-## 📞 Support
+## 🙏 Agradecimentos
 
-For questions, issues, or contributions, please:
-- Open an issue on GitHub
-- Contact the development team
-- Check the documentation
+- **SimPy** - Simulação de eventos discretos
+- **SciPy** - Computação científica e otimização
+- **scikit-learn** - Algoritmos de machine learning
+- **Matplotlib/Seaborn** - Visualização de dados
+- **NumPy/Pandas** - Computação numérica e análise de dados
 
 ---
 
-**Built with ❤️ for industrial digital transformation**
+## 📞 Suporte
+
+Para dúvidas, problemas ou contribuições, por favor:
+- Abra uma issue no GitHub
+- Entre em contato com a equipe de desenvolvimento
+- Consulte a documentação
+
+---
+
+**Construído com ❤️ para transformação digital industrial**
