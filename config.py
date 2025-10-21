@@ -1,5 +1,8 @@
 """
-Configuration management for the Digital Twin system.
+Gerenciamento de configuração para o sistema de Gêmeo Digital.
+
+Este módulo define todas as estruturas de configuração necessárias
+para o funcionamento do sistema de gêmeo digital industrial.
 """
 import os
 from dataclasses import dataclass
@@ -9,50 +12,50 @@ import json
 
 @dataclass
 class MachineConfig:
-    """Configuration for a single machine."""
-    name: str
-    min_time: float
-    max_time: float
-    efficiency: float = 1.0
-    maintenance_interval: float = 100.0  # hours
-    failure_rate: float = 0.01  # probability per hour
+    """Configuração para uma única máquina."""
+    name: str  # Nome da máquina
+    min_time: float  # Tempo mínimo de operação (horas)
+    max_time: float  # Tempo máximo de operação (horas)
+    efficiency: float = 1.0  # Eficiência da máquina (0-1)
+    maintenance_interval: float = 100.0  # Intervalo de manutenção (horas)
+    failure_rate: float = 0.01  # Taxa de falha (probabilidade por hora)
 
 
 @dataclass
 class SimulationConfig:
-    """Configuration for simulation parameters."""
-    duration: float = 10.0  # hours
-    time_step: float = 0.1  # hours
-    random_seed: int = 42
-    log_level: str = "INFO"
+    """Configuração para parâmetros de simulação."""
+    duration: float = 10.0  # Duração da simulação (horas)
+    time_step: float = 0.1  # Passo de tempo (horas)
+    random_seed: int = 42  # Semente aleatória para reprodutibilidade
+    log_level: str = "INFO"  # Nível de logging
 
 
 @dataclass
 class OptimizationConfig:
-    """Configuration for optimization parameters."""
-    algorithm: str = "L-BFGS-B"  # scipy optimization method
-    max_iterations: int = 1000
-    tolerance: float = 1e-6
-    constraints: bool = True
+    """Configuração para parâmetros de otimização."""
+    algorithm: str = "L-BFGS-B"  # Método de otimização do scipy
+    max_iterations: int = 1000  # Número máximo de iterações
+    tolerance: float = 1e-6  # Tolerância para convergência
+    constraints: bool = True  # Usar restrições na otimização
 
 
 @dataclass
 class PredictiveConfig:
-    """Configuration for predictive models."""
-    model_type: str = "linear"  # linear, polynomial, random_forest
-    polynomial_degree: int = 2
-    validation_split: float = 0.2
-    cross_validation_folds: int = 5
+    """Configuração para modelos preditivos."""
+    model_type: str = "linear"  # Tipo do modelo: linear, polynomial, random_forest
+    polynomial_degree: int = 2  # Grau do polinômio (se aplicável)
+    validation_split: float = 0.2  # Fração dos dados para validação
+    cross_validation_folds: int = 5  # Número de folds para validação cruzada
 
 
 @dataclass
 class VisualizationConfig:
-    """Configuration for visualization."""
-    figure_size: tuple = (12, 8)
-    dpi: int = 100
-    style: str = "seaborn-v0_8"
-    save_plots: bool = True
-    output_dir: str = "output"
+    """Configuração para visualização."""
+    figure_size: tuple = (12, 8)  # Tamanho das figuras (largura, altura)
+    dpi: int = 100  # Resolução das imagens
+    style: str = "seaborn-v0_8"  # Estilo dos gráficos
+    save_plots: bool = True  # Salvar gráficos em arquivos
+    output_dir: str = "output"  # Diretório de saída
 
 
 class Config:

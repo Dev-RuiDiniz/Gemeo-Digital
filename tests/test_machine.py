@@ -1,10 +1,16 @@
+"""
+Testes unitários para a classe Machine.
+
+Este módulo contém testes abrangentes para verificar o funcionamento
+correto da simulação de máquinas no sistema de Gêmeo Digital.
+"""
 import unittest
 import numpy as np
 from twins.machine import Machine
 
 class TestMachine(unittest.TestCase):
     def setUp(self):
-        """Set up test fixtures."""
+        """Configura fixtures de teste."""
         self.machine = Machine("Test", 1.0, 2.0, efficiency=0.9)
     
     def test_operate_returns_float(self):

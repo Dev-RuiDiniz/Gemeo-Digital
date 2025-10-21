@@ -1,3 +1,9 @@
+"""
+Modelos preditivos avançados para o sistema de Gêmeo Digital.
+
+Este módulo implementa múltiplos algoritmos de machine learning
+com validação cruzada e métodos ensemble para previsão de tempos de operação.
+"""
 from typing import List, Dict, Optional, Tuple
 import numpy as np
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
@@ -14,7 +20,7 @@ warnings.filterwarnings('ignore')
 
 
 class PredictiveModel:
-    """Enhanced predictive model with multiple algorithms and validation."""
+    """Modelo preditivo aprimorado com múltiplos algoritmos e validação."""
     
     def __init__(self, model_type: str = "linear", polynomial_degree: int = 2):
         self.model_type = model_type

@@ -1,26 +1,29 @@
 #!/usr/bin/env python3
 """
-Test runner for the Digital Twin system.
+Executador de testes para o sistema de Gêmeo Digital.
+
+Este script executa todos os testes do sistema, incluindo
+testes unitários e de integração.
 """
 import unittest
 import sys
 import os
 
-# Add the project root to the Python path
+# Adicionar raiz do projeto ao caminho Python
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 def run_tests():
-    """Run all tests in the test suite."""
-    # Discover and run tests
+    """Executa todos os testes na suite de testes."""
+    # Descobrir e executar testes
     loader = unittest.TestLoader()
     start_dir = 'tests'
     suite = loader.discover(start_dir, pattern='test_*.py')
     
-    # Run tests
+    # Executar testes
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)
     
-    # Return exit code
+    # Retornar código de saída
     return 0 if result.wasSuccessful() else 1
 
 if __name__ == '__main__':

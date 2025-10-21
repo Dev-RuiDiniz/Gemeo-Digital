@@ -1,3 +1,9 @@
+"""
+Simulação aprimorada de máquinas para o sistema de Gêmeo Digital.
+
+Este módulo implementa uma classe de máquina avançada com funcionalidades
+de rastreamento de performance, manutenção e simulação de falhas.
+"""
 import random
 import numpy as np
 from typing import List, Dict, Optional
@@ -8,7 +14,7 @@ logger = get_logger(__name__)
 
 
 class Machine:
-    """Enhanced Machine class with statistics, maintenance, and failure simulation."""
+    """Classe de máquina aprimorada com estatísticas, manutenção e simulação de falhas."""
     
     def __init__(
         self, 
@@ -19,6 +25,17 @@ class Machine:
         maintenance_interval: float = 100.0,
         failure_rate: float = 0.01
     ):
+        """
+        Inicializa uma máquina com parâmetros de operação.
+        
+        Args:
+            name: Nome da máquina
+            min_time: Tempo mínimo de operação (horas)
+            max_time: Tempo máximo de operação (horas)
+            efficiency: Eficiência da máquina (0-1)
+            maintenance_interval: Intervalo de manutenção (horas)
+            failure_rate: Taxa de falha (probabilidade por hora)
+        """
         self.name = name
         self.min_time = min_time
         self.max_time = max_time
@@ -26,19 +43,19 @@ class Machine:
         self.maintenance_interval = maintenance_interval
         self.failure_rate = failure_rate
         
-        # Operation tracking
-        self.operation_times: List[float] = []
-        self.operation_dates: List[datetime] = []
-        self.total_operations = 0
-        self.total_downtime = 0.0
-        self.last_maintenance = 0.0
-        self.is_operational = True
+        # Rastreamento de operações
+        self.operation_times: List[float] = []  # Histórico de tempos de operação
+        self.operation_dates: List[datetime] = []  # Datas das operações
+        self.total_operations = 0  # Total de operações realizadas
+        self.total_downtime = 0.0  # Tempo total de inatividade
+        self.last_maintenance = 0.0  # Última manutenção realizada
+        self.is_operational = True  # Status operacional da máquina
         
-        # Performance metrics
-        self.performance_history: List[float] = []
-        self.quality_scores: List[float] = []
+        # Métricas de performance
+        self.performance_history: List[float] = []  # Histórico de performance
+        self.quality_scores: List[float] = []  # Pontuações de qualidade
         
-        logger.info(f"Machine {self.name} initialized with efficiency {efficiency}")
+        logger.info(f"Máquina {self.name} inicializada com eficiência {efficiency}")
 
     def operate(self, current_time: float = 0.0) -> float:
         """

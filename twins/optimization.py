@@ -1,3 +1,9 @@
+"""
+Motor de otimização avançado para o sistema de Gêmeo Digital.
+
+Este módulo implementa múltiplos algoritmos de otimização com suporte
+a restrições e análise de sensibilidade.
+"""
 from typing import List, Dict, Optional, Callable
 import numpy as np
 from scipy.optimize import minimize, differential_evolution, dual_annealing
@@ -7,7 +13,7 @@ logger = get_logger(__name__)
 
 
 class OptimizationEngine:
-    """Enhanced optimization engine with multiple algorithms and constraints."""
+    """Motor de otimização aprimorado com múltiplos algoritmos e restrições."""
     
     def __init__(self, algorithm: str = "L-BFGS-B", max_iterations: int = 1000, tolerance: float = 1e-6):
         self.algorithm = algorithm

@@ -1,73 +1,76 @@
 #!/usr/bin/env python3
 """
-Demo script for the Digital Twin system.
+Script de demonstração para o sistema de Gêmeo Digital.
+
+Este script executa uma demonstração completa do sistema,
+mostrando todas as funcionalidades principais.
 """
 import os
 import sys
 from main import DigitalTwinSystem
 
 def run_demo():
-    """Run a demonstration of the Digital Twin system."""
-    print("🏭 Digital Twin Industrial System - Demo")
+    """Executa uma demonstração do sistema de Gêmeo Digital."""
+    print("🏭 Sistema de Gêmeo Digital Industrial - Demonstração")
     print("=" * 50)
     
     try:
-        # Initialize system with default configuration
-        print("Initializing Digital Twin System...")
+        # Inicializar sistema com configuração padrão
+        print("Inicializando Sistema de Gêmeo Digital...")
         system = DigitalTwinSystem()
         
-        # Run a short simulation
-        print("Running simulation...")
+        # Executar simulação curta
+        print("Executando simulação...")
         system.run_simulation(duration=5.0)
         
-        # Run optimization
-        print("Running optimization...")
+        # Executar otimização
+        print("Executando otimização...")
         system.run_optimization()
         
-        # Train predictive models
-        print("Training predictive models...")
+        # Treinar modelos preditivos
+        print("Treinando modelos preditivos...")
         system.train_predictive_models()
         
-        # Generate visualizations
-        print("Generating visualizations...")
+        # Gerar visualizações
+        print("Gerando visualizações...")
         system.generate_visualizations()
         
-        # Generate report
-        print("Generating system report...")
+        # Gerar relatório
+        print("Gerando relatório do sistema...")
         report = system.generate_report()
         
-        # Print summary
+        # Imprimir resumo
         print("\n" + "=" * 50)
-        print("DEMO SUMMARY")
+        print("RESUMO DA DEMONSTRAÇÃO")
         print("=" * 50)
         
-        print(f"Number of machines: {len(system.machines)}")
+        print(f"Número de máquinas: {len(system.machines)}")
         
         if system.production_line:
             metrics = system.production_line.get_production_metrics()
-            print(f"Total cycles completed: {metrics['total_cycles']}")
-            print(f"Line efficiency: {metrics['line_efficiency']:.2%}")
-            print(f"Bottleneck machine: {metrics['bottleneck_machine']}")
+            print(f"Total de ciclos completados: {metrics['total_cycles']}")
+            print(f"Eficiência da linha: {metrics['line_efficiency']:.2%}")
+            print(f"Máquina gargalo: {metrics['bottleneck_machine']}")
         
         if hasattr(system, 'optimization_results'):
             opt = system.optimization_results
-            print(f"Optimization improvement: {opt['improvement_percentage']:.2f}%")
+            print(f"Melhoria da otimização: {opt['improvement_percentage']:.2f}%")
         
-        print(f"Predictive models trained: {len(system.predictive_models)}")
+        print(f"Modelos preditivos treinados: {len(system.predictive_models)}")
         
-        # Print machine statistics
-        print("\nMachine Statistics:")
+        # Imprimir estatísticas das máquinas
+        print("\nEstatísticas das Máquinas:")
         for machine in system.machines:
             stats = machine.get_statistics()
-            print(f"  {machine.name}: {stats['total_operations']} operations, "
-                  f"avg time: {stats['average_time']:.2f}h, "
-                  f"efficiency: {stats['efficiency']:.2%}")
+            print(f"  {machine.name}: {stats['total_operations']} operações, "
+                  f"tempo médio: {stats['average_time']:.2f}h, "
+                  f"eficiência: {stats['efficiency']:.2%}")
         
-        print("\n✅ Demo completed successfully!")
-        print("Check the 'output' directory for generated visualizations and reports.")
+        print("\n✅ Demonstração concluída com sucesso!")
+        print("Verifique o diretório 'output' para visualizações e relatórios gerados.")
         
     except Exception as e:
-        print(f"❌ Demo failed: {e}")
+        print(f"❌ Demonstração falhou: {e}")
         return 1
     
     return 0

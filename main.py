@@ -1,5 +1,8 @@
 """
-Enhanced Digital Twin System - Main Application
+Sistema de Gêmeo Digital Aprimorado - Aplicação Principal
+
+Este módulo implementa o sistema principal do Gêmeo Digital Industrial,
+integrando simulação, otimização, análise preditiva e visualização.
 """
 import simpy
 import numpy as np
@@ -7,7 +10,7 @@ import random
 from datetime import datetime
 import os
 
-# Import enhanced modules
+# Importar módulos aprimorados
 from config import Config
 from utils.logger import setup_logger
 from twins.machine import Machine
@@ -18,35 +21,40 @@ from twins.visualization import DigitalTwinVisualizer
 
 
 class DigitalTwinSystem:
-    """Main Digital Twin System class."""
+    """Classe principal do Sistema de Gêmeo Digital."""
     
     def __init__(self, config_file: str = None):
-        """Initialize the Digital Twin system."""
-        # Load configuration
+        """
+        Inicializa o sistema de Gêmeo Digital.
+        
+        Args:
+            config_file: Caminho para arquivo de configuração JSON (opcional)
+        """
+        # Carregar configuração
         self.config = Config(config_file)
         
-        # Setup logging
+        # Configurar sistema de logging
         self.logger = setup_logger(
             name="digital_twin",
             level=self.config.simulation.log_level,
             log_file=f"logs/digital_twin_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
         )
         
-        # Initialize components
-        self.machines = []
-        self.production_line = None
-        self.optimization_engine = None
-        self.predictive_models = {}
-        self.visualizer = None
+        # Inicializar componentes do sistema
+        self.machines = []  # Lista de máquinas
+        self.production_line = None  # Linha de produção
+        self.optimization_engine = None  # Motor de otimização
+        self.predictive_models = {}  # Modelos preditivos
+        self.visualizer = None  # Sistema de visualização
         
-        # Initialize system
+        # Inicializar sistema completo
         self._initialize_system()
     
     def _initialize_system(self):
-        """Initialize all system components."""
-        self.logger.info("Initializing Digital Twin System...")
+        """Inicializa todos os componentes do sistema."""
+        self.logger.info("Inicializando Sistema de Gêmeo Digital...")
         
-        # Create machines from configuration
+        # Criar máquinas a partir da configuração
         for machine_config in self.config.machines:
             machine = Machine(
                 name=machine_config.name,
@@ -58,62 +66,70 @@ class DigitalTwinSystem:
             )
             self.machines.append(machine)
         
-        # Initialize optimization engine
+        # Inicializar motor de otimização
         self.optimization_engine = OptimizationEngine(
             algorithm=self.config.optimization.algorithm,
             max_iterations=self.config.optimization.max_iterations,
             tolerance=self.config.optimization.tolerance
         )
         
-        # Initialize visualizer
+        # Inicializar sistema de visualização
         self.visualizer = DigitalTwinVisualizer(
             style=self.config.visualization.style,
             figure_size=self.config.visualization.figure_size,
             dpi=self.config.visualization.dpi
         )
         
-        self.logger.info(f"System initialized with {len(self.machines)} machines")
+        self.logger.info(f"Sistema inicializado com {len(self.machines)} máquinas")
     
     def run_simulation(self, duration: float = None):
-        """Run the production simulation."""
+        """
+        Executa a simulação de produção.
+        
+        Args:
+            duration: Duração da simulação em horas (opcional)
+            
+        Returns:
+            Objeto da linha de produção após simulação
+        """
         if duration is None:
             duration = self.config.simulation.duration
         
-        self.logger.info(f"Starting simulation for {duration} hours")
+        self.logger.info(f"Iniciando simulação por {duration} horas")
         
-        # Set random seed for reproducibility
+        # Definir semente aleatória para reprodutibilidade
         random.seed(self.config.simulation.random_seed)
         np.random.seed(self.config.simulation.random_seed)
         
-        # Create simulation environment
-        env = simpy.Environment()
+        # Criar ambiente de simulação
+env = simpy.Environment()
         
-        # Create production line
+        # Criar linha de produção
         self.production_line = ProductionLine(env, self.machines)
         
-        # Run simulation
+        # Executar simulação
         env.process(self.production_line.run_production(duration))
-        env.run()
-        
-        self.logger.info("Simulation completed")
+env.run()
+
+        self.logger.info("Simulação concluída")
         return self.production_line
     
     def run_optimization(self):
-        """Run optimization analysis."""
-        self.logger.info("Starting optimization analysis...")
+        """Executa análise de otimização."""
+        self.logger.info("Iniciando análise de otimização...")
         
-        # Get initial times and bounds
+        # Obter tempos iniciais e limites
         initial_times = [m.average_time() for m in self.machines]
         bounds = [(m.min_time, m.max_time) for m in self.machines]
         
-        # Run optimization
+        # Executar otimização
         result = self.optimization_engine.optimize_times(
             bounds=bounds,
             initial_times=initial_times,
             objective_function="bottleneck_penalty"
         )
         
-        # Store results
+        # Armazenar resultados
         self.optimization_results = {
             'initial_times': initial_times,
             'optimized_times': result['optimized_times'].tolist(),
@@ -121,27 +137,27 @@ class DigitalTwinSystem:
             'improvement_percentage': result['improvement_percentage']
         }
         
-        self.logger.info(f"Optimization completed - Improvement: {result['improvement_percentage']:.2f}%")
+        self.logger.info(f"Otimização concluída - Melhoria: {result['improvement_percentage']:.2f}%")
         return result
     
     def train_predictive_models(self):
-        """Train predictive models for all machines."""
-        self.logger.info("Training predictive models...")
+        """Treina modelos preditivos para todas as máquinas."""
+        self.logger.info("Treinando modelos preditivos...")
         
         for machine in self.machines:
             if len(machine.operation_times) >= 3:
-                # Create ensemble model
+                # Criar modelo ensemble
                 ensemble = EnsemblePredictiveModel(
                     models=["linear", "ridge", "random_forest"]
                 )
                 ensemble.train(machine.operation_times)
                 self.predictive_models[machine.name] = ensemble
                 
-                # Get predictions
+                # Obter previsões
                 prediction = ensemble.predict_next()
-                self.logger.info(f"Machine {machine.name} - Next cycle prediction: {prediction:.2f}h")
+                self.logger.info(f"Máquina {machine.name} - Previsão próximo ciclo: {prediction:.2f}h")
             else:
-                self.logger.warning(f"Insufficient data for machine {machine.name}")
+                self.logger.warning(f"Dados insuficientes para máquina {machine.name}")
     
     def generate_visualizations(self):
         """Generate all visualizations."""

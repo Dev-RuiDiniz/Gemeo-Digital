@@ -1,5 +1,8 @@
 """
-Logging utilities for the Digital Twin system.
+Utilitários de logging para o sistema de Gêmeo Digital.
+
+Este módulo fornece funcionalidades de logging centralizadas
+para todo o sistema de gêmeo digital industrial.
 """
 import logging
 import os
@@ -14,16 +17,16 @@ def setup_logger(
     console_output: bool = True
 ) -> logging.Logger:
     """
-    Set up a logger with both file and console output.
+    Configura um logger com saída para arquivo e console.
     
     Args:
-        name: Logger name
-        level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-        log_file: Optional log file path
-        console_output: Whether to output to console
+        name: Nome do logger
+        level: Nível de logging (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+        log_file: Caminho opcional para arquivo de log
+        console_output: Se deve exibir no console
     
     Returns:
-        Configured logger instance
+        Instância do logger configurado
     """
     logger = logging.getLogger(name)
     logger.setLevel(getattr(logging, level.upper()))

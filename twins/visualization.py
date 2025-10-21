@@ -1,5 +1,8 @@
 """
-Enhanced visualization module for the Digital Twin system.
+Módulo de visualização aprimorado para o sistema de Gêmeo Digital.
+
+Este módulo fornece capacidades abrangentes de visualização incluindo
+gráficos de performance, dashboards e relatórios detalhados.
 """
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -15,7 +18,7 @@ logger = get_logger(__name__)
 
 
 class DigitalTwinVisualizer:
-    """Enhanced visualization class for digital twin data."""
+    """Classe de visualização aprimorada para dados de gêmeo digital."""
     
     def __init__(self, style: str = "seaborn-v0_8", figure_size: tuple = (12, 8), dpi: int = 100):
         self.style = style

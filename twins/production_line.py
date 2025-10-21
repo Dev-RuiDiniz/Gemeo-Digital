@@ -1,3 +1,9 @@
+"""
+Simulação avançada de linha de produção para o sistema de Gêmeo Digital.
+
+Este módulo implementa uma linha de produção com monitoramento em tempo real,
+análise de gargalos e métricas de performance.
+"""
 import simpy
 import random
 from typing import List, Dict, Optional
@@ -9,7 +15,7 @@ logger = get_logger(__name__)
 
 
 class ProductionLine:
-    """Enhanced production line simulation with metrics and monitoring."""
+    """Simulação aprimorada de linha de produção com métricas e monitoramento."""
     
     def __init__(self, env: simpy.Environment, machines: List[Machine]):
         self.env = env
