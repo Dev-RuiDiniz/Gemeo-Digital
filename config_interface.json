@@ -1,0 +1,34 @@
+{
+  "interface": {
+    "titulo": "Sistema de Gêmeo Digital Industrial",
+    "icone": "🏭",
+    "tema": "light",
+    "largura": "wide"
+  },
+  "simulacao": {
+    "duracao_padrao": 10,
+    "duracao_minima": 1,
+    "duracao_maxima": 24,
+    "num_maquinas_padrao": 3,
+    "num_maquinas_minimo": 2,
+    "num_maquinas_maximo": 6
+  },
+  "maquinas": {
+    "tempo_minimo_padrao": 1.0,
+    "tempo_maximo_padrao": 2.0,
+    "eficiencia_padrao": 0.9,
+    "taxa_falha_padrao": 0.01,
+    "intervalo_manutencao_padrao": 100.0
+  },
+  "graficos": {
+    "altura": 400,
+    "tema": "plotly_white",
+    "cores": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"]
+  },
+  "relatorios": {
+    "formato": "json",
+    "incluir_graficos": true,
+    "incluir_metricas": true,
+    "incluir_previsoes": true
+  }
+}

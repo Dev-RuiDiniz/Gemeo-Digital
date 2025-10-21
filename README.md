@@ -70,6 +70,25 @@ pip install -r requirements.txt
 python main.py
 ```
 
+### 🌐 Interface Web (Recomendado)
+
+Para uma experiência visual completa, use a interface web:
+
+1. **Instale a interface:**
+```bash
+python instalar_interface.py
+```
+
+2. **Inicie a interface:**
+```bash
+python iniciar_interface.py
+```
+
+3. **Acesse no navegador:**
+```
+http://localhost:8501
+```
+
 ### Configuração
 
 O sistema usa arquivos de configuração JSON. Uma configuração de exemplo é fornecida em `config_sample.json`:

@@ -1,0 +1,12 @@
+# Requisitos para a interface web do Gêmeo Digital
+streamlit>=1.28.0
+plotly>=5.17.0
+pandas>=2.1.0
+numpy>=1.25.0
+
+# Dependências do sistema principal
+simpy>=4.0.1
+matplotlib>=3.7.1
+scipy>=1.11.1
+scikit-learn>=1.3.0
+seaborn>=0.12.0
