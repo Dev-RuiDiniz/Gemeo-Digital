@@ -1,0 +1,53 @@
+{
+  "machines": [
+    {
+      "name": "A",
+      "min_time": 1.0,
+      "max_time": 2.0,
+      "efficiency": 0.95,
+      "maintenance_interval": 100.0,
+      "failure_rate": 0.01
+    },
+    {
+      "name": "B",
+      "min_time": 0.5,
+      "max_time": 1.5,
+      "efficiency": 0.90,
+      "maintenance_interval": 80.0,
+      "failure_rate": 0.015
+    },
+    {
+      "name": "C",
+      "min_time": 0.8,
+      "max_time": 1.8,
+      "efficiency": 0.88,
+      "maintenance_interval": 120.0,
+      "failure_rate": 0.012
+    }
+  ],
+  "simulation": {
+    "duration": 10.0,
+    "time_step": 0.1,
+    "random_seed": 42,
+    "log_level": "INFO"
+  },
+  "optimization": {
+    "algorithm": "L-BFGS-B",
+    "max_iterations": 1000,
+    "tolerance": 1e-6,
+    "constraints": true
+  },
+  "predictive": {
+    "model_type": "ensemble",
+    "polynomial_degree": 2,
+    "validation_split": 0.2,
+    "cross_validation_folds": 5
+  },
+  "visualization": {
+    "figure_size": [12, 8],
+    "dpi": 100,
+    "style": "seaborn-v0_8",
+    "save_plots": true,
+    "output_dir": "output"
+  }
+}
